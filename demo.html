@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras@5.0.1/dist/aframe-extras.controls.min.js"></script>
+
+    <script src="aframe-richtext.js"></script>
+
+    <style type="text/css" media="all">
+    </style>
+</head>
+
+<body>
+
+    <a-scene richtext="normalFont: fonts/Roboto-msdf.json; boldFont: fonts/Roboto-Bold-msdf.json;"
+        background="color: white;">
+        <a-assets>
+            <a-mixin id="offset" position="0 0 -1"></a-asset-item>
+        </a-assets>
+        <a-entity environment="preset: forest"></a-entity>
+        <a-entity position="0 0 0">
+            <a-entity rotation="0 0 0">
+                <a-entity richtext="src: #textToDisplay; wrapCount: 80" mixin="offset"></a-entity>
+            </a-entity>
+        </a-entity>
+        <a-entity movement-controls="fly: true; speed: 0.1;"><a-entity position="0 0 0" look-controls
+                camera></a-entity></a-entity>
+    </a-scene>
+</body>
+<div id="container">dfdf
+    <div id="textToDisplay" style="position:absolute;top:100px">
+        <div style="color:cyan">
+            <div>this is <span>a first</span> text</div>
+            <span>with a line1 with a lot of text</span>
+        </div>
+        <div>this is a text line2</div>
+        <div>this is a bold text <br />
+        <div>this is a <b id="boldText">bold</b>text <br />
+            and <i>italic</i>bit</div>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+    </div>
+</div>
+
+</html>
